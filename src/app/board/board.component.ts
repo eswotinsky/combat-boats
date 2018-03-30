@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PlayerComponent } from '../player/player.component';
 
 @Component({
   selector: 'app-board',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class BoardComponent {
 
-  constructor() { }
+  constructor(public player: PlayerComponent) { }
 
 
 }

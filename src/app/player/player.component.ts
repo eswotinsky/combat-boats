@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class PlayerComponent {
 
-  constructor() { }
-
+  constructor(public id: number) { }
 
 }
