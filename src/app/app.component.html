@@ -6,9 +6,7 @@
 <div class="container">
 
 
-  <div class="game-board">
-    <p>game board goes here</p>
-  </div>
+  <app-board></app-board>
 
   <div class="player-turn-indicator">
     <p>Player {{currentPlayerId}}'s turn</p>
@@ -18,7 +16,7 @@
 
   <!-- display after winner is chosen -->
   <!-- <div *ngIf(gameIsWon)>
-    <h3>some_player wins!</h3>
+    <h3>{{currentPlayerId}} wins!</h3>
     <h4>Click to start a new game.</h4>
   </div> -->
 
