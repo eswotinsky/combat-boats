@@ -1,3 +1,11 @@
 <p>
   board works!
 </p>
+
+<button (click)="create()">CREATE TILES</button>
+  <table>
+    <tr *ngFor='let row of tiles'>
+      <td class="tile" *ngFor='let col of row' (click)="attack()" [style.background-color]="col.used ? 'red' : 'transparent'">
+    </td>
+    </tr>
+  </table>

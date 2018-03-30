@@ -8,7 +8,7 @@ import { PlayerComponent } from '../player/player.component';
 })
 export class BoardComponent {
 
-  tiles: Object[];
+  tiles: Object[] = [];
 
   create() {
     for(let i = 0; i < 10; i++) {
@@ -17,6 +17,11 @@ export class BoardComponent {
         this.tiles[i][j] = {used: false}; //each tile is represented by [row][col] coordinates. each contains a property to track state
       }
     }
+  }
+
+  attack() {
+    //does nothing yet
+    //need to determine how to best identify the tile clicked before acting on it
   }
 
 }
