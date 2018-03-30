@@ -17,11 +17,17 @@ export class BoardComponent {
         this.tiles[i][j] = {used: false}; //each tile is represented by [row][col] coordinates. each contains a property to track state
       }
     }
+    //test ships below
+    this.tiles[1][2].used = true;
+    this.tiles[1][3].used = true;
+
+    this.tiles[4][5].used = true;
+    this.tiles[5][5].used = true;
+    this.tiles[6][5].used = true;
   }
 
-  attack() {
-    //does nothing yet
-    //need to determine how to best identify the tile clicked before acting on it
+  attack(event: any) {
+    console.log(event.used ? 'hit' : 'miss')
   }
 
 }

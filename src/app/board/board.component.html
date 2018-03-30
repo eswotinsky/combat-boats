@@ -2,7 +2,7 @@
 <hr>
   <table>
     <tr *ngFor='let row of tiles'>
-      <td class="tile" *ngFor='let col of row' (click)="attack()" [style.background-color]="col.used ? 'red' : 'transparent'">
+      <td class="tile" *ngFor='let col of row' (click)="attack(col)" [style.background-color]="col.used ? 'red' : 'transparent'">
     </td>
     </tr>
   </table>
