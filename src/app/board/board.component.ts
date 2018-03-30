@@ -14,7 +14,7 @@ export class BoardComponent {
     for(let i = 0; i < 10; i++) {
       this.tiles[i] = []; //tiles is an array containing 10 arrays (rows)
       for(let j = 0; j < 10; j++) { //each row contains 10 tile units (1 per column)
-        this.tiles[i][j] = {used: false}; //each tile is represented by [row][col] coordinates. each contains a property to track state
+        this.tiles[i][j] = {used: false, struck: false}; //each tile is represented by [row][col] coordinates. each contains a property to track state
       }
     }
     //test ships below
@@ -26,8 +26,13 @@ export class BoardComponent {
     this.tiles[6][5].used = true;
   }
 
-  attack(event: any) {
-    console.log(event.used ? 'hit' : 'miss')
+  attack(tile: any) {
+    tile.struck = true;
+    console.log(tile.used ? 'hit' : 'miss');
+  }
+
+  wasStruck(tile: any) {
+    return tile.struck ? 'X' : '';
   }
 
 }
