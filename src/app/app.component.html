@@ -1,4 +1,3 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center; margin-top:1%">
   <img width="150" alt="CombatBoats logo" src="../assets/combatboats-logo.png">
   <h1>CombatBoats!</h1>
@@ -6,13 +5,12 @@
 <div class="container">
 
 
+<button (click)="gameStarted = true">Start Playing</button>
+<div *ngIf="gameStarted">
+
   <app-board></app-board>
 
-  <div class="player-turn-indicator">
-    <p>Player {{currentPlayerId}}'s turn</p>
-  </div>
-
-
+  <app-player></app-player>
 
   <!-- display after winner is chosen -->
   <!-- <div *ngIf(gameIsWon)>
@@ -20,4 +18,5 @@
     <h4>Click to start a new game.</h4>
   </div> -->
 
+</div>
 </div>

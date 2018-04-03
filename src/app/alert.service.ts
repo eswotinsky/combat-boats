@@ -13,4 +13,8 @@ export class AlertService {
     console.log("KABOOM");
   }
 
+  playerMissedBoat() {
+    console.log("SPLASH");
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PlayerComponent } from '../player/player.component';
 import { AlertService } from '../alert.service';
 
@@ -8,11 +8,15 @@ import { AlertService } from '../alert.service';
   styleUrls: ['./board.component.css'],
   providers: [AlertService]
 })
-export class BoardComponent {
+export class BoardComponent implements OnInit {
 
   tiles: Object[] = [];
 
   constructor(private alertService: AlertService) { }
+
+  ngOnInit() {
+    this.create();
+  }
 
   create() {
     for(let i = 0; i < 10; i++) {
@@ -35,7 +39,9 @@ export class BoardComponent {
       if(tile.hasBoat===true) {
         this.alertService.playerHitBoat();
       }
-
+      else {
+        this.alertService.playerMissedBoat();
+      }
       //emit player change
     }
     else {
