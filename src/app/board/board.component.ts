@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerComponent } from '../player/player.component';
 import { AlertService } from '../alert.service';
+import { GameBoard } from '../models/GameBoard.model';
+import { Ship, shipFactory } from '../models/Ship.model';
 
 @Component({
   selector: 'app-board',
@@ -10,27 +12,14 @@ import { AlertService } from '../alert.service';
 })
 export class BoardComponent implements OnInit {
 
-  tiles: Object[] = [];
+  gameBoard: GameBoard;
+  selectedShip: Ship = shipFactory.length5();
 
   constructor(private alertService: AlertService) { }
 
   ngOnInit() {
-    this.create();
-  }
-
-  create() {
-    for(let i = 0; i < 10; i++) {
-      this.tiles[i] = []; //tiles is an array containing 10 arrays (rows)
-      for(let j = 0; j < 10; j++) { //each row contains 10 tile units (1 per column)
-        this.tiles[i][j] = {hasBoat: false, struck: false}; //each tile is represented by [row][col] coordinates. each contains a property to track state
-      }
-    }
-    //test ships below
-    this.tiles[1][2].hasBoat = true;
-    this.tiles[1][3].hasBoat = true;
-    this.tiles[4][5].hasBoat = true;
-    this.tiles[5][5].hasBoat = true;
-    this.tiles[6][5].hasBoat = true;
+    this.gameBoard = new GameBoard();
+    console.log(this.gameBoard.board);
   }
 
   attack(tile: any) {
@@ -49,8 +38,14 @@ export class BoardComponent implements OnInit {
     }
   }
 
+  place(tile){
+    this.selectedShip.place(this.gameBoard, tile);
+    //after finished placing all ships, set selectedShip to null so attack function works
+  }
+
   wasStruck(tile: any) {
-    return tile.struck ? 'X' : '';
+    //empty if tile not yet struck; O if struck and hasBoat; X if struck and !hasBoat
+    return !tile.struck ? '' : tile.hasBoat ? 'O' : 'X';
   }
 
 }

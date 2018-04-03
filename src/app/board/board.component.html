@@ -1,7 +1,15 @@
-<hr>
-  <table>
-    <tr *ngFor='let row of tiles'>
+  <!-- displays when placing ships -->
+  <table *ngIf="selectedShip">
+    <tr *ngFor='let row of gameBoard.board'>
+      <td class="tile" *ngFor='let col of row' (click)="place(col)" [style.background-color]="col.hasBoat ? 'green' : 'lightblue'">{{wasStruck(col)}}
+      </td>
+    </tr>
+  </table>
+
+  <!-- displays when done placing ships; gameplay begins -->
+  <table *ngIf="!selectedShip">
+    <tr *ngFor='let row of gameBoard.board'>
       <td class="tile" *ngFor='let col of row' (click)="attack(col)" [style.background-color]="col.hasBoat ? 'green' : 'lightblue'">{{wasStruck(col)}}
-    </td>
+      </td>
     </tr>
   </table>
