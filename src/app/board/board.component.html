@@ -2,7 +2,7 @@
 <hr>
   <table>
     <tr *ngFor='let row of tiles'>
-      <td class="tile" *ngFor='let col of row' (click)="attack(col)" [style.background-color]="col.used ? 'red' : 'transparent'">{{wasStruck(col)}}
+      <td class="tile" *ngFor='let col of row' (click)="attack(col)" [style.background-color]="col.hasBoat ? 'green' : 'lightblue'">{{wasStruck(col)}}
     </td>
     </tr>
   </table>
