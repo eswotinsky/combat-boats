@@ -7,8 +7,6 @@ export class Ship {
   constructor(length: number){
     this.place = (()=>{
       return (gameBoard: GameBoard, tile) => { //gameBoard.board[x][y]
-        console.log(tile);
-        console.log(gameBoard);
         if (gameBoard.board[0].length >= tile.x + length){
           for (let i = 0; i < length; i++){
             gameBoard.board[tile.y][tile.x+i].hasBoat = true;

@@ -4,19 +4,18 @@
 </div>
 <div class="container">
 
+  <button *ngIf="gameStarted === false" (click)="gameStarted = true">Game Start</button>
+  <div *ngIf="gameStarted">
 
-<button (click)="gameStarted = true">Start Playing</button>
-<div *ngIf="gameStarted">
+    <app-board></app-board>
 
-  <app-board></app-board>
+    <app-player></app-player>
 
-  <app-player></app-player>
+    <!-- display after winner is chosen -->
+    <!-- <div *ngIf(gameIsWon)>
+      <h3>{{currentPlayerId}} wins!</h3>
+      <h4>Click to start a new game.</h4>
+    </div> -->
 
-  <!-- display after winner is chosen -->
-  <!-- <div *ngIf(gameIsWon)>
-    <h3>{{currentPlayerId}} wins!</h3>
-    <h4>Click to start a new game.</h4>
-  </div> -->
-
-</div>
+  </div>
 </div>
