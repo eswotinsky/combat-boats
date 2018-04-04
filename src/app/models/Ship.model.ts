@@ -6,9 +6,7 @@ export class Ship {
   //determine if dead function
   constructor(length: number){
     this.place = (()=>{
-      return (gameBoard: GameBoard, tile) => { //gameBoard.board[x][y]
-        console.log(tile);
-        console.log(gameBoard);
+      return (gameBoard: GameBoard, tile) => {
         if (gameBoard.board[0].length >= tile.x + length){
           for (let i = 0; i < length; i++){
             gameBoard.board[tile.y][tile.x+i].hasBoat = true;

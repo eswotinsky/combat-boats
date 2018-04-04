@@ -1,15 +1,39 @@
-  <!-- displays when placing ships -->
-  <table *ngIf="selectedShip">
-    <tr *ngFor='let row of gameBoard.board'>
-      <td class="tile" *ngFor='let col of row' (click)="place(col)" [style.background-color]="col.hasBoat ? 'green' : 'lightblue'">{{wasStruck(col)}}
-      </td>
-    </tr>
-  </table>
+<!-- displays when placing ships -->
 
-  <!-- displays when done placing ships; gameplay begins -->
-  <table *ngIf="!selectedShip">
-    <tr *ngFor='let row of gameBoard.board'>
-      <td class="tile" *ngFor='let col of row' (click)="attack(col)" [style.background-color]="col.hasBoat ? 'green' : 'lightblue'">{{wasStruck(col)}}
-      </td>
-    </tr>
-  </table>
+
+<div class="row">
+  <div class="col-md-6">
+
+    <div *ngIf="selectedShip">
+      <h3>Place Your Ships!</h3>
+      <table>
+        <tr *ngFor='let row of gameBoard.board'>
+          <td class="tile" *ngFor='let col of row' (click)="place(col)" [style.background-color]="col.hasBoat ? 'green' : 'lightblue'">{{wasStruck(col)}}
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- displays when done placing ships; gameplay begins -->
+    <div *ngIf="!selectedShip">
+      <h3>Click to Fire Torpedos!</h3>
+      <table>
+        <tr *ngFor='let row of gameBoard.board'>
+          <td class="tile" *ngFor='let col of row' (click)="attack(col)" [style.background-color]="col.hasBoat ? 'green' : 'lightblue'">{{wasStruck(col)}}
+          </td>
+        </tr>
+      </table>
+    </div>
+  <!-- column end -->
+  </div>
+
+  <div class="col-md-6" style="background-color:bisque;">
+    <h3>Enemy Ships Here</h3>
+    <!-- click to end placement phase; start game -->
+  </div>
+
+</div>
+<hr>
+<div class="row">
+  <button *ngIf="this.selectedShip" (click)="this.selectedShip=null">Start Playing</button>
+</div>

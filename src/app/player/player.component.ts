@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent {
-  playerId: number = 1;
+  playerId: number;
 
   constructor() { }
 
